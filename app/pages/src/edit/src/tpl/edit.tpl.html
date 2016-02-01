@@ -1,0 +1,85 @@
+<div layout="row" layout-align="center start">
+  <div flex="60" flex-xs="100">
+    <md-card>
+      <md-card-title class="user-info" layout="column" layout-align="center center">
+        <md-card-avatar>
+          <img ng-src="{{vm.user.avatar}}" class="md-avatar" alt="{{vm.user.username}}">
+        </md-card-avatar>
+        <md-card-title-text>
+          <h3 class="md-headline">{{vm.user.username}}</h3>
+        </md-card-title-text>
+        <md-button ui-sref="user.profile" class="md-fab md-fab-bottom-right" aria-label="{{'profile.title' | translate}}">
+          <md-tooltip>{{'profile.title' | translate}}</md-tooltip>
+          <md-icon md-font-library="material-icons">person</md-icon>
+        </md-button>
+      </md-card-title>
+      <error-box ng-if="vm.hasError">{{vm.hasError | translate}}</error-box>
+      <md-card-content class="md-padding">
+        <form name="form" ng-submit="vm.submit(form.$valid)" novalidate>
+          <md-input-container class="md-icon-float md-block" flex>
+            <label>{{'form.username.name' | translate}}</label>
+            <md-icon md-font-library="material-icons">person</md-icon>
+            <input ng-model="vm.user.username" name="username" type="text" required minlength="3" md-maxlength="30" username-validation disabled="">
+            <div class="hint">{{'form.username.hint' | translate}}</div>
+            <div ng-messages="form.username.$error" ng-if="form.username.$touched" multiple>
+              <div ng-message="required">{{'form.required' | translate}}</div>
+              <div ng-message="incorrect">{{'form.username.incorrect' | translate}}</div>
+              <div ng-message="minlength">{{'form.username.minLength' | translate}}</div>
+              <div ng-message="md-maxlength">{{'form.username.maxLength' | translate}}</div>
+            </div>
+          </md-input-container>
+          <div layout="row" layout-nowrap>
+            <md-input-container class="md-icon-float md-icon-left md-block" flex>
+              <label>{{'form.password.name' | translate}}</label>
+              <md-icon md-font-library="material-icons">vpn_key</md-icon>
+              <input ng-model="vm.user.password" name="password" type="{{vm.pwdType}}" minlength="3" md-maxlength="30" required password-validation ng-disabled="vm.formDisabled" flex>
+              <div class="hint">{{'form.password.hint' | translate}}</div>
+              <div ng-messages="form.password.$error" ng-if="form.password.$touched" multiple>
+                <div ng-message="required">{{'form.required' | translate}}</div>
+                <div ng-message="incorrect">{{'form.password.incorrect' | translate}}</div>
+                <div ng-message="minlength">{{'form.password.minLength' | translate}}</div>
+                <div ng-message="md-maxlength">{{'form.password.maxLength' | translate}}</div>
+              </div>
+            </md-input-container>
+            <md-button class="md-icon-button" ng-click="vm.pwdVisible()">
+              <md-tooltip>{{vm.pwdType === 'password' ? 'form.password.show' : 'form.password.hide' | translate}}</md-tooltip>
+              <md-icon md-font-library="material-icons">{{vm.pwdIcon}}</md-icon>
+            </md-button>
+          </div>
+          <md-input-container class="md-icon-float md-block" flex>
+            <label>{{'form.age.name' | translate}}</label>
+            <md-icon md-font-library="material-icons">all_inclusive</md-icon>
+            <input ng-model="vm.user.age" name="age" type="text" required age-min="18" age-max="65" age-validation ng-trim="false" ng-disabled="vm.formDisabled">
+            <div class="hint">{{'form.age.hint' | translate}}</div>
+            <div ng-messages="form.age.$error" ng-if="form.age.$touched" multiple>
+              <div ng-message="required">{{'form.required' | translate}}</div>
+              <div ng-message="noSpaces">{{'form.age.noSpaces' | translate}}</div>
+              <div ng-message="incorrect">{{'form.age.incorrect' | translate}}</div>
+                <div ng-message="ageMin">{{'form.age.ageMin' | translate}}</div>
+                <div ng-message="ageMax">{{'form.age.ageMax' | translate}}</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block" flex>
+              <label>{{'form.birthday.name' | translate}}</label>
+              <md-icon md-font-library="material-icons">cake</md-icon>
+              <input ng-model="vm.user.birthday" name="birthday" type="text" required birthday-validation ng-disabled="vm.formDisabled">
+              <div class="hint">{{'form.birthday.hint' | translate}}</div>
+              <div ng-messages="form.birthday.$error" ng-if="form.birthday.$touched" multiple>
+                <div ng-message="required">{{'form.required' | translate}}</div>
+                <div ng-message="incorrect">{{'form.birthday.incorrect' | translate}}</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block" flex>
+              <label>{{'form.greeting.name' | translate}}</label>
+              <md-icon md-font-library="material-icons">mood</md-icon>
+              <input ng-model="vm.user.greeting" type="text" ng-disabled="vm.formDisabled">
+            </md-input-container>
+            <div layout="column" layout-align="center">
+              <md-button type="submit" class="md-raised md-primary" aria-label="{{'form.save' | translate}}" ng-disabled="!form.$valid || !form.$dirty || vm.formDisabled">{{'form.save' | translate}}</md-button>
+            </div>
+        </form>  
+      </md-card-content>
+      <md-progress-linear md-mode="indeterminate" ng-if="vm.formDisabled" class="form-load"></md-progress-linear>
+    </md-card>
+  </div>
+</div>

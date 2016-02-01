@@ -1,0 +1,39 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" ng-if="sb.isLoggedIn()">
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2>{{'title' | translate}}</h2>
+		</div>
+  	</md-toolbar>
+	<md-toolbar class="md-primary md-hue-2">
+		<div class="md-toolbar-tools" layout-padding>
+			<img ng-src="{{sb.user.avatar}}" class="md-avatar" />
+			<h4 class="username">{{sb.user.username}}</h4>
+		</div>
+	</md-toolbar>
+	<md-toolbar class="md-primary md-hue-2">
+		<div class="md-toolbar-tools" layout-align="space-around center">
+			<md-button ui-sref="user.profile" class="md-icon-button" aria-label="{{'profile.title' | translate}}">
+				<md-tooltip>{{'profile.title' | translate}}</md-tooltip>
+		        <md-icon md-font-library="material-icons">person</md-icon>
+		    </md-button>
+			<md-button ui-sref="user.edit" class="md-icon-button" aria-label="{{'edit.title' | translate}}">
+				<md-tooltip>{{'edit.title' | translate}}</md-tooltip>
+		        <md-icon md-font-library="material-icons">create</md-icon>
+		    </md-button>
+			<md-button ui-sref="logout" class="md-icon-button" aria-label="{{'logOut' | translate}}">
+				<md-tooltip>{{'logOut' | translate}}</md-tooltip>
+		        <md-icon md-font-library="material-icons">exit_to_app</md-icon>
+		    </md-button>
+		</div>
+	</md-toolbar>
+	<md-content>
+		<ul class="nav-menu">
+			<li>
+        		<md-button ui-sref="user.dashboard" aria-label="{{'dashboard.title' | translate}}">{{'dashboard.title' | translate}}</md-button>
+        	</li>
+			<li>
+        		<md-button ui-sref="user.treeview" aria-label="{{'treeview.title' | translate}}">{{'treeview.title' | translate}}</md-button>
+        	</li>
+		</ul>
+	</md-content>
+</md-sidenav>

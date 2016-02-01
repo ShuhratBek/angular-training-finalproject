@@ -1,0 +1,14 @@
+<svg ng-attr-height="{{height + 50}}" ng-attr-width="{{width + 100}}">
+	<g transform="translate(30, 30)">
+		<g class="grid" zIndex="1">
+			<path ng-repeat="gr in ct.grid" fill="none" ng-attr-d="{{gr.d}}" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path>
+		</g>
+		<g class="axis-labels xaxis-labels" zIndex="7">
+			<text ng-repeat="xLabel in ct.xLabels" ng-attr-x="{{xLabel.x}}" ng-attr-style="{{xLabel.style}}" ng-attr-text-anchor="{{xLabel.textAnchor}}" transform="translate(0,0)" ng-attr-y="{{height+20}}" opacity="1">{{xLabel.text}}</text>
+		</g>
+		<g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7">
+			<text ng-repeat="yLabel in ct.yLabels" ng-attr-x="{{yLabel.x}}" ng-attr-style="{{yLabel.style}}" ng-attr-text-anchor="{{yLabel.textAnchor}}" ng-attr-transform="translate(0, 0)" ng-attr-y="{{yLabel.y}}" ng-attr-opacity="{{yLabel.opacity}}">{{yLabel.text}}</text>
+		</g>
+		<g ng-attr-transform="translate(0, {{height}}), scale(1, -1)" ng-transclude></g>
+	</g>
+</svg>

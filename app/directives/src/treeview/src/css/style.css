@@ -1,0 +1,80 @@
+.treeview-container {
+  max-height: 300px;
+  overflow: auto;
+}
+.treeview{
+	margin: 0;
+	padding: 0;
+	background: 0 0;
+	list-style-type: none;
+	position: relative;
+}
+.treeview-item {
+	display: block;
+    border-width: 0;
+    margin: 0;
+    padding: 0 0 0 16px;
+}
+
+.treeview-item .search{
+  background-color: #ff0;
+}
+
+.treeview,
+.treeview ul {
+  margin:0 0 0 1em; /* indentation */
+  padding:0;
+  list-style:none;
+  color:#369;
+  position:relative;
+}
+
+.treeview ul {margin-left:.5em} /* (indentation/2) */
+
+.treeview:before,
+.treeview ul:before {
+  content:"";
+  display:block;
+  width:0;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:1em;
+  border-left:1px solid;
+  border-left-style: dashed;
+}
+
+.treeview li {
+  margin:0;
+  padding:0 1.5em; /* indentation + .5em */
+  line-height:2em; /* default list item's `line-height` */
+  font-weight:bold;
+  position:relative;
+}
+
+.treeview li:before {
+  content:"";
+  display:block;
+  width:10px; /* same with indentation */
+  height:0;
+  border-top:1px solid;
+  border-top-style: dashed;
+  margin-top:-1px; /* border top width */
+  position:absolute;
+  top:1.5em; /* (line-height/2) */
+  left:1em;
+}
+
+.treeview *:last-child::before {
+  background:white; /* same with body background */
+  height:auto;
+  bottom:0;
+}
+
+.treeview li .md-button {
+  text-align: left;
+}
+
+.hint.not-found {
+  color: #f00;
+}

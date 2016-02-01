@@ -1,0 +1,227 @@
+.content {
+	background-color: #CFD8DC;
+  padding-top: 30px;
+}
+.hint {
+	font-size: 12px;
+	line-height: 14px;
+	transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+	color: grey;
+}
+.hint.ng-hide,
+.hint.ng-enter,
+.hint.ng-leave.ng-leave-active {
+	bottom: 26px;
+	opacity: 0;
+}
+.hint.ng-leave,
+.hint.ng-enter.ng-enter-active {
+	bottom: 7px;
+	opacity: 1;
+}
+md-card {
+	position: relative;
+}
+md-card-footer {
+	background-color: #ECEFF1;
+}
+.full-height {
+    height: 100%;
+    box-sizing: border-box;
+}
+.main-toolbar {
+	position: relative;
+}
+md-progress-linear.page-load {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+md-progress-linear.form-load {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+.has-error.ng-leave {
+	animation-duration: 1s;
+  	animation-fill-mode: both;
+	animation-name: bounceOut;
+}
+.has-error.ng-enter {
+	animation-duration: 1s;
+  animation-fill-mode: both;
+  	animation-name: bounceIn;
+}
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(.97, .97, .97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes bounceOut {
+  20% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  50%, 55% {
+    opacity: 1;
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+}
+
+.md-sidenav-left {
+	background-color: rgb(0,150,136);
+	color: #fff;
+}
+.md-sidenav-left .md-avatar,
+.user-info .md-avatar {
+  width: 50px;
+  height: 50px;
+  margin-top: 26px;
+  margin-bottom: 16px;
+  margin-right: 0!important;
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+.user-info .md-avatar {
+  width: 128px;
+  height: 128px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-right: 0!important;
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+.user-info {
+  background-color: #3F51B5;
+  color: #fff;
+  position: relative;
+}
+.user-info .md-headline {
+  margin-top: 0!important;
+}
+.user-info .md-fab {
+  bottom: -30px!important;
+}
+.md-sidenav-left .username {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: .01em;
+  margin: 16px 0 0;
+  line-height: 1.2em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.md-sidenav-left md-content {
+  background: transparent;
+  color: #fff;
+}
+.md-sidenav-left md-content .nav-menu {
+  list-style: none;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.md-sidenav-left md-content .nav-menu li {
+  margin: 0;
+}
+.md-sidenav-left md-content .nav-menu li .md-button {
+  border-radius: 0;
+  cursor: pointer;
+  display: block;
+  align-items: inherit;
+  line-height: 40px;
+  margin: 0;
+  max-height: 40px;
+  overflow: hidden;
+  padding: 0px 16px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  white-space: normal;
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+  box-sizing: border-box;
+}
+/*.path {
+  stroke-dasharray: 100%;
+  stroke-dashoffset: 100%;
+  animation: dash 1s linear forwards;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}*/
+/*.path {
+ animation-name: slideInUp;
+   animation-duration: 1s;
+  animation-fill-mode: both;
+}*/
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+/*.path {
+  animation: draw 1s forwards;
+}*/
+@-webkit-keyframes css {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes css {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw {
+  from{}
+ 
+  to {
+    stroke-dashoffset: 0;
+  }
+}

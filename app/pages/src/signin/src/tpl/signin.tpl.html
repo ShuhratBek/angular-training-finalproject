@@ -1,0 +1,47 @@
+ <div layout="row" layout-align="center start">
+  <div flex="50" flex-xs="90">
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{'signIn.title' | translate}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <error-box ng-if="vm.hasError">{{vm.hasError | translate}}</error-box>
+      <md-card-content>
+        <form name="form" ng-submit="vm.submit(form.$valid)" novalidate flex>
+          <md-input-container class="md-icon-float md-block" flex>
+              <label>{{'form.username.name' | translate}}</label>
+              <md-icon md-font-library="material-icons">person</md-icon>
+              <input ng-model="vm.user.username" name="username" type="text" minlength="3" md-maxlength="30" required username-validation ng-disabled="vm.formDisabled">
+              <div class="hint">{{'form.username.hint' | translate}}</div>
+              <div ng-messages="form.username.$error" ng-if="form.username.$touched" multiple>
+                <div ng-message="required">{{'form.required' | translate}}</div>
+                <div ng-message="incorrect">{{'form.username.incorrect' | translate}}</div>
+                <div ng-message="minlength">{{'form.username.minLength' | translate}}</div>
+                <div ng-message="md-maxlength">{{'form.username.maxLength' | translate}}</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block" flex>
+              <label>{{'form.password.name' | translate}}</label>
+              <md-icon md-font-library="material-icons">vpn_key</md-icon>
+              <input ng-model="vm.user.password" name="password" type="password" minlength="3" md-maxlength="30" required password-validation ng-disabled="vm.formDisabled">
+              <div class="hint">{{'form.password.hint' | translate}}</div>
+              <div ng-messages="form.password.$error" ng-if="form.password.$touched" multiple>
+                <div ng-message="required">{{'form.required' | translate}}</div>
+                <div ng-message="incorrect">{{'form.password.incorrect' | translate}}</div>
+                <div ng-message="minlength">{{'form.password.minLength' | translate}}</div>
+                <div ng-message="md-maxlength">{{'form.password.maxLength' | translate}}</div>
+              </div>
+            </md-input-container>
+            <div layout="column" layout-align="center">
+              <md-button type="submit" class="md-raised md-primary" aria-label="SignIn" ng-disabled="!form.$valid || vm.formDisabled">{{'signIn.submit' | translate}}</md-button>
+            </div>
+        </form>
+      </md-card-content>
+      <md-progress-linear md-mode="indeterminate" ng-if="vm.formDisabled" class="form-load"></md-progress-linear>
+      <md-card-footer layout="column" layout-align="space-around center">
+        <md-button ui-sref="auth.forgot" aria-label="{{'forgot.title' | translate}}" class="">{{'forgot.title' | translate}}</md-button>
+      </md-card-footer>
+    </md-card>
+  </div>
+</div>

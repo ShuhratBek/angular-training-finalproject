@@ -1,0 +1,16 @@
+<div>
+	<div layout="row" flex>
+		<md-input-container class="md-block" flex>
+			<label>Search</label>
+			<input ng-model="query" ng-change="countSearch()" autofocus flex>
+			<div class="hint" ng-if="query.length > 0" ng-class="{'not-found': notFound()}">{{notFound() ? "Not found" : "Found " + count() + " results"}}</div>
+		</md-input-container>
+		<md-button class="md-icon-button" ng-if="query.length > 0" ng-click="clearSearch()" aria-label="Clear">
+			<md-tooltip>Clear</md-tooltip>
+			<md-icon md-font-library="material-icons">clear</md-icon>
+		</md-button>
+	</div>
+	<div class="treeview-container">
+		<tree-node source="tree" query="query"></tree-node>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+{
+	"profiles": [
+		{
+			"age": 26,
+			"birthday": "13 May 1995",
+			"greeting": "So cool",
+			"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"
+		}, 
+		{
+			"age": 39,
+			"birthday": "22 June 1985",
+			"greeting": "",
+			"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/chadengle/128.jpg"
+		}
+	]
+}

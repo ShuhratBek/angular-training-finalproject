@@ -1,0 +1,25 @@
+<md-toolbar class="main-toolbar">
+    <div class="md-toolbar-tools">
+    	<md-button class="md-icon-button" aria-label="{{'menu' | translate}}" hide-gt-md ng-click="tb.toggleSideNav()" ng-if="tb.isLoggedIn()">
+        	<md-icon md-font-library="material-icons">menu</md-icon>
+        </md-button>
+        <span ng-transclude=""></span>
+        <span flex></span>
+    </div>
+	<md-fab-speed-dial md-open="tb.isFabOpen" md-direction="down" class="md-scale md-fab-top-right" ng-mouseenter="tb.isFabOpen=true" ng-mouseleave="tb.isFabOpen=false">
+	    <md-fab-trigger>
+	        <md-button aria-label="{{'switchLang' | translate}}" class="md-fab md-warn">
+	            <md-icon md-font-library="material-icons">language</md-icon>
+	            <md-tooltip md-direction="left" md-visible="tooltipVisible">{{'switchLang' | translate}}</md-tooltip>
+	        </md-button>
+	    </md-fab-trigger>
+	    <md-fab-actions ng-if="tb.isFabOpen">
+	        <div ng-repeat="item in tb.langs">
+	          <md-button aria-label="{{item.name | translate}}" class="md-fab md-raised md-mini" ng-class="{'md-accent': tb.currentLang(item.lang)}" ng-click="tb.switchLang(item.lang)">
+	            <md-tooltip md-direction="left" md-visible="tooltipVisible">{{item.tooltip | translate}}</md-tooltip>
+	            <span>{{item.name | translate}}</span>
+	          </md-button>
+	        </div>
+	    </md-fab-actions>
+	</md-fab-speed-dial>
+</md-toolbar>

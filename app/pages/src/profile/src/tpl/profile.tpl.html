@@ -1,0 +1,50 @@
+<div layout="row" layout-align="center start">
+  <div flex="60" flex-xs="100">
+    <md-card>
+      <md-card-title class="user-info" layout="column" layout-align="center center">
+        <md-card-avatar>
+          <img ng-src="{{vm.user.avatar}}" class="md-avatar" alt="{{vm.user.username}}">
+        </md-card-avatar>
+        <md-card-title-text>
+          <span>{{vm.user.username}}</span>
+        </md-card-title-text>
+        <md-button ui-sref="user.edit" class="md-fab md-fab-bottom-right" aria-label="{{'edit.title' | translate}}">
+          <md-tooltip>{{'edit.title' | translate}}</md-tooltip>
+          <md-icon md-font-library="material-icons">create</md-icon>
+        </md-button>
+      </md-card-title>
+      <md-card-content>
+        <md-list>
+          <md-list-item class="md-2-line">
+            <md-icon md-font-library="material-icons">person</md-icon>
+            <div class="md-list-item-text" layout="column">
+              <h3>{{vm.user.username}}</h3>
+              <p>{{'form.username.name' | translate}}</p>
+            </div>
+          </md-list-item>
+          <md-list-item class="md-2-line">
+            <md-icon md-font-library="material-icons">all_inclusive</md-icon>
+            <div class="md-list-item-text" layout="column">
+              <h3>{{vm.user.age}}</h3>
+              <p>{{'form.age.name' | translate}}</p>
+            </div>
+          </md-list-item>
+          <md-list-item class="md-2-line">
+              <md-icon md-font-library="material-icons">cake</md-icon>
+            <div class="md-list-item-text" layout="column">
+              <h3>{{vm.user.birthday}}</h3>
+              <p>{{'form.birthday.name' | translate}}</p>
+            </div>
+          </md-list-item>
+          <md-list-item class="md-2-line">
+              <md-icon md-font-library="material-icons">mood</md-icon>
+            <div class="md-list-item-text" layout="column">
+              <h3>{{vm.user.greeting}}</h3>
+              <p>{{'form.greeting.name' | translate}}</p>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
